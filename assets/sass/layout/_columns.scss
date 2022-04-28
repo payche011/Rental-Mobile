@@ -1,0 +1,14 @@
+$max-col-count: 4;
+.grid-container {
+  --gap: 0.5em;
+  display: grid;
+  gap: var(--gap);
+  @include lg {
+    grid-auto-flow: column;
+    @for $i from 1 through $max-col-count {
+      &--item:nth-child(#{$max-col-count}n + #{$i}) {
+        grid-column: $i;
+      }
+    }
+  }
+}

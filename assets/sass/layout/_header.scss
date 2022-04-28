@@ -1,0 +1,77 @@
+// Header navigation
+.header {
+
+  //  Navigation
+  .navigation {
+    justify-content: space-between;
+    align-items: center;
+    //  logo
+    &__logo {
+      max-width: 165px;
+      @include lg {
+        max-width: 100%;
+      }
+    }
+
+    //  Hamburger
+    &__mobile {
+
+      & > *:not(:last-child) {
+        margin-bottom: 3px;
+      }
+
+      & span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-right: 3px;
+        background: $clr-black;
+      }
+
+      @include lg {
+        display: none;
+      }
+    }
+
+    //  List
+    &__list {
+      display: none;
+      @include lg {
+        display: flex;
+      }
+      // Items
+      &--items {
+        &:not(:last-child) {
+          margin-right: 1.5vw;
+        }
+
+        & a {
+
+          &.active {
+            position: relative;
+            color: $clr-black;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: -3px;
+              background: $clr-black;
+              width: 45%;
+              height: 2px;
+              transition: 350ms ease-in-out width;
+            }
+
+            &:hover {
+              &::before {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// header navigation end

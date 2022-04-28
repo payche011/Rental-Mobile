@@ -1,0 +1,246 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px;
+  // Firefox
+  scrollbar-width: thin !important;
+  scrollbar-color: $clr-primary $clr-white !important;
+  scroll-behavior: smooth;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+// Webkit browsers
+::-webkit-scrollbar {
+  position: relative;
+  width: 5px;
+  height: 5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar-track {
+  position: absolute;
+  border-radius: 0px;
+  background: $clr-white;
+}
+
+::-webkit-scrollbar-thumb {
+  position: absolute;
+  border-radius: 0px;
+  background: $clr-primary;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: $clr-black;
+  min-height: 100vh;
+}
+
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  margin: 0;
+}
+
+p {
+  font-size: 1.6rem;
+  min-height: 0vw;
+  font-weight: 400;
+}
+
+ul,
+ul[role="list"],
+ol[role="list"] {
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: $clr-link;
+}
+
+a {
+  font-size: 1.6rem;
+  text-decoration: none !important;
+
+  &:hover {
+    color: currentColor;
+  }
+}
+
+//
+// Improve readability of focused elements when they are also in an
+// active/hover state.
+//
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+//
+// Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+//
+
+b,
+strong {
+  font-weight: bold;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dotted $clr-text-gray;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+
+  @include xl {
+    margin: 0;
+  }
+}
+
+//
+// Remove border when inside `a` element in IE 8/9/10.
+//
+img {
+  border: 0;
+}
+
+//
+// Correct overflow not hidden in IE 9/10/11.
+//
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+//
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+//
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+//
+// Known limitation: by default, Chrome and Safari on OS X allow very limited
+// styling of `select`, unless a `border` property is set.
+//
+
+//
+// 1. Correct color not being inherited.
+//    Known issue: affects color of disabled elements.
+// 2. Correct font properties not being inherited.
+// 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+//
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+//
+// Fix the cursor style for Chrome's increment/decrement buttons. For certain
+// `font-size` values of the `input`, it causes the cursor style of the
+// decrement button to change from `default` to `text`.
+//
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+//
+// 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+// 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+//
+
+input[type="search"] {
+  -webkit-appearance: textfield; // 1
+  box-sizing: content-box; //2
+}
+
+//
+// Remove inner padding and search cancel button in Safari and Chrome on OS X.
+// Safari (but not Chrome) clips the cancel button when the search input has
+// padding (and `textfield` appearance).
+//
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+//
+// Remove default vertical scrollbar in IE 8/9/10/11.
+//
+
+textarea {
+  overflow: auto;
+}
+
+// Options
+::selection {
+  background: $clr-primary;
+  color: $clr-white;
+}
+
+/* ### Scrollbar ### */
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
